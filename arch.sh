@@ -4,7 +4,8 @@ set -e
 
 DISK="/dev/sdX"  # Replace with your actual disk, e.g. /dev/sda or /dev/nvme0n1
 HOST=""   #hostname
-HOSTPASS=""	#host password
+USER=""     #username
+USERPASS=""	#host password
 ROOTPASS=""	#root password
 
 echo "==> Wiping and partitioning $DISK..."
@@ -59,7 +60,7 @@ echo root:$ROOTPASS | chpasswd
 
 # Create user archV and add to wheel group for sudo
 useradd -m -G wheel -s /bin/bash $HOST
-echo $HOST:$HOSTPASS | chpasswd
+echo $USER:$USERPASS | chpasswd
 
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
