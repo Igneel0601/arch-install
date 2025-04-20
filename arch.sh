@@ -39,7 +39,7 @@ swapon $SWAP
 
 echo "==> Installing base system..."
 
-pacstrap /mnt base linux linux-firmware sof-firmware grub efibootmgr networkmanager base-devel nano sddm plasma firefox
+pacstrap /mnt base linux linux-firmware sof-firmware grub efibootmgr networkmanager base-devel nano
 echo "==> Generating fstab..."
 
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -67,7 +67,6 @@ grub-install $DISK
 grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable NetworkManager
-systemctl enable sddm
 EOF
 
 echo "==> Unmounting and done!"
