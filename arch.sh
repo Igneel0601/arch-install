@@ -59,7 +59,7 @@ echo $HOST > /etc/hostname
 echo root:$ROOTPASS | chpasswd
 
 # Create user archV and add to wheel group for sudo
-useradd -m -G wheel -s /bin/bash $HOST
+useradd -m -G wheel -s /bin/bash $USER
 echo $USER:$USERPASS | chpasswd
 
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
